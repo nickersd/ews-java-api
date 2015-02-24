@@ -220,15 +220,15 @@ public void pageThroughEntireInbox() {
 	FindItemsResults<Item> findResults;
 
 	do {
-		findResults = service.FindItems(WellKnownFolderName.Inbox, view);
+		findResults = service.findItems(WellKnownFolderName.Inbox, view);
 
 		for(Item item : findResults.getItems())
 		{
 			// Do something with the item.
 		}
 
-		view.Offset += 50;
-    } while (findResults.MoreAvailable);
+      		view.setOffset(view.getOffset() + 50);
+    } while (findResults.isMoreAvailable());
 }
 ```
 
